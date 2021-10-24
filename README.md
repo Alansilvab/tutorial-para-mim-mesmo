@@ -449,12 +449,11 @@ Recomendamos a utilizar Yarn, pois podes fazer backup de pastas importantes para
 21. Agora, vamos criar o novo projecto e entrar nele com estes comandos seguinte:
 
    ```zsh
-   expo init ProjectoAlan
+   npx react-native init ProjectoAlan
    cd ProjectoAlan
    ```
 
-22. Executa o comando `yarn start` ou `expo start`, receberás a janela do navegador aberta;
-23. Para testar com o emulador de Android, então selecciona «Run on Android device/emulator» ou prime <kbd>a</kbd> no terminal. Funcionou? Congratulações!
+22. Então executa o comando `npx react-native run-android`. Abrir-se-á o emulador de Android e o aplicativo do Expo/rEact native deverá ser aberto automaticamente no emulador. Funcionou? Congratulações!
 
 ## Xcode
 
@@ -463,8 +462,33 @@ Recomendamos a utilizar Yarn, pois podes fazer backup de pastas importantes para
 
    ![Diálogo do painel «Locations»](images/exemplo-17.png)
 
-3. Executa o comando `yarn start` ou `expo start`, receberás a janela do navegador aberta;
-4. Para testar com o emulador de iOS, então selecciona «Run on iOS simulator» ou prime <kbd>i</kbd> no terminal. Funcionou? Congratulações!
+3. Antes de testar, precisamos instalar o Ruby via Homebrew, então CocoaPOds via Ruby e poucos pacotes via `npm` ou `yarn` (recomendamos totalmente):
+
+   Instala o Ruby via Hombrew
+
+   ```zsh
+   brew install ruby
+   ```
+
+   E adicionar a exportação do Ruby ao ficheiro `~/.zshrc`:
+
+   ```zsh
+   export PATH="/usr/local/opt/ruby/bin:$PATH"
+   ```
+
+   Então instala CocoaPods via Ruby:
+
+   ```zsh
+   sudo gem install cocoapods
+   ```
+
+   Instala o pacote `watchman` via Homebrew:
+
+   ```zsh
+   brew install watchman
+   ```
+
+4. Como já tinhas iniciado o projecto no item anterior de [Android Studio](#android-studio), entrada na pasta `ProjectoAlan` e executa o comando `npx react-native run-ios`. Funcionou? Congratulações!
 
 ## VSCode
 
