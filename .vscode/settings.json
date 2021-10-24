@@ -1,0 +1,6 @@
+{
+    "markdown.preview.fontFamily": "'SF Pro Rounded', -apple-system, sans-serif",
+    "markdown.styles": [
+        ".vscode/style.css"
+    ],
+}
