@@ -115,34 +115,40 @@ brew install --cask visual-studio-code
 	brew services start httpd
 	```
 
-1. Vamos configurar o Apache e restaurá-lo:
+3. Vamos configurar o Apache e restaurá-lo:
 
 	```zsh
 	code /usr/local/etc/httpd/httpd.conf
 	```
 
-3. Localiza `Listen 8080` e muda para `Listen 80`;
-4. Localiza `DocumentRoot "/usr/local/var/www”`, e muda para `DocumentRoot /Users/alansilva/Sites`;
-5. Também muda de `<Directory "/usr/local/var/www">` para `<Directory "DocumentRoot /Users/alansilva/Sites">`;
-6. Dentro da mesma linha `<Directory "DocumentRoot /Users/alansilva/Sites">`, muda de `AllowOverride None` para `AllowOverride All`;
-7. Localize `LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so` e remove o símbolo `#` para descomentá-lo;
-8. Localize `User _www` e muda assim para:
+4. Localiza `Listen 8080` e muda para `Listen 80`;
+5. Localiza `DocumentRoot "/usr/local/var/www”`, e muda para `DocumentRoot /Users/alansilva/Sites`;
+6. Verifica a versão de Apache antes de copiar a nova alteração:
+
+```zsh
+httpd -v
+```
+
+7. Se for Aapache 2.2, muda de `<Directory "/usr/local/var/www">` para `<Directory "DocumentRoot /Users/alansilva/Sites">`, e se for Aapache 2.4, muda de `<Directory "/usr/local/var/www">` para `<Directory "/Users/alansilva/Sites">`;
+8. Dentro da mesma linha `<Directory "DocumentRoot /Users/alansilva/Sites">`, muda de `AllowOverride None` para `AllowOverride All`;
+9. Localize `LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so` e remove o símbolo `#` para descomentá-lo;
+10. Localize `User _www` e muda assim para:
 
    ```zsh
    User alansilva
    Group staff
    ```
 
-9. Localiza `#ServerName www.example.com:8080` e muda para `ServerName localhost` com o símbolo `#` removido;
-10. Crie uma pasta e um ficheiro chamado `index.html`, a executar o comando no terminal:
+11. Localiza `#ServerName www.example.com:8080` e muda para `ServerName localhost` com o símbolo `#` removido;
+12. Crie uma pasta e um ficheiro chamado `index.html`, a executar o comando no terminal:
 
     ```zsh
     mkdir ~/Sites
-    touch ~/Sites/index.html`
+    touch ~/Sites/index.html
     ```
 
-11. Abre o ficheiro com o comando `code ~/Sites/index.html`;
-12. Copia e cola dentro do ficheiro:
+12. Abre o ficheiro com o comando `code ~/Sites/index.html`;
+13. Copia e cola dentro do ficheiro:
 
     ```html
     <h1>Sou Alan</h1> 
@@ -151,7 +157,7 @@ brew install --cask visual-studio-code
 
     Guarda o 0ficheiro e fecha.
 
-13. Vamos parar e reiniciar o Apache:
+14. Vamos parar e reiniciar o Apache:
 
     ```zsh
     brew services stop httpd
